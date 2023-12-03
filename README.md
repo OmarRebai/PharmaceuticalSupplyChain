@@ -29,18 +29,6 @@ The project structure includes a folder named **"Contracts"** containing all the
 
 With the contracts deployed and the client running, you can interact with the Pharmaceutical Supply Chain. Monitor and trace transactions using the provided features.
 
-## Contribution Guidelines
-
-We welcome contributions! If you'd like to contribute to the project, please follow these guidelines:
-- Fork the repository.
-- Create a new branch for your feature or bug fix.
-- Ensure your code follows the project's coding standards.
-- Submit a pull request.
-
-## License
-
-This project is licensed under the [Your License Name] License - see the **[LICENSE.md](LICENSE.md)** file for details.
-
 ## Acknowledgments
 
 - [Remix IDE](https://remix.ethereum.org/)
