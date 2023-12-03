@@ -1,0 +1,308 @@
+{
+  "contractName": "IRollable",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_address",
+          "type": "address"
+        }
+      ],
+      "name": "find",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.8.21+commit.d9974bed\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_address\",\"type\":\"address\"}],\"name\":\"find\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/roles/IRollable.sol\":\"IRollable\"},\"evmVersion\":\"shanghai\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/roles/IRollable.sol\":{\"keccak256\":\"0x6b1913a59b848cc0f9b006bca036a361155b0982bb2abb1414787d86b6a3894b\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://7262e680b070830086208283cd923fc9162519e5721d0f6dba7d7a262b7e2ff8\",\"dweb:/ipfs/QmaEAQmUSsGRx2mZK7G6GbuZUzQZmSXWyv39EkifuM8owQ\"]}},\"version\":1}",
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "immutableReferences": {},
+  "generatedSources": [],
+  "deployedGeneratedSources": [],
+  "sourceMap": "",
+  "deployedSourceMap": "",
+  "source": "// SPDX-License-Identifier: MIT \r\npragma solidity >=0.4.22 <0.9.0;\r\n\r\n\r\nstruct Rollable{\r\n    address addr;\r\n    uint256 id;\r\n    string name;\r\n    string place;\r\n}\r\n\r\ninterface IRollable{\r\n\r\n    function find(address _address) external view returns (uint256);\r\n    \r\n}",
+  "sourcePath": "D:\\Blockchain_project\\PharmaceuticalSupplyChain\\contracts\\roles\\IRollable.sol",
+  "ast": {
+    "absolutePath": "project:/contracts/roles/IRollable.sol",
+    "exportedSymbols": {
+      "IRollable": [
+        996
+      ],
+      "Rollable": [
+        988
+      ]
+    },
+    "id": 997,
+    "license": "MIT",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 979,
+        "literals": [
+          "solidity",
+          ">=",
+          "0.4",
+          ".22",
+          "<",
+          "0.9",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "34:32:3"
+      },
+      {
+        "canonicalName": "Rollable",
+        "id": 988,
+        "members": [
+          {
+            "constant": false,
+            "id": 981,
+            "mutability": "mutable",
+            "name": "addr",
+            "nameLocation": "102:4:3",
+            "nodeType": "VariableDeclaration",
+            "scope": 988,
+            "src": "94:12:3",
+            "stateVariable": false,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_address",
+              "typeString": "address"
+            },
+            "typeName": {
+              "id": 980,
+              "name": "address",
+              "nodeType": "ElementaryTypeName",
+              "src": "94:7:3",
+              "stateMutability": "nonpayable",
+              "typeDescriptions": {
+                "typeIdentifier": "t_address",
+                "typeString": "address"
+              }
+            },
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 983,
+            "mutability": "mutable",
+            "name": "id",
+            "nameLocation": "121:2:3",
+            "nodeType": "VariableDeclaration",
+            "scope": 988,
+            "src": "113:10:3",
+            "stateVariable": false,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_uint256",
+              "typeString": "uint256"
+            },
+            "typeName": {
+              "id": 982,
+              "name": "uint256",
+              "nodeType": "ElementaryTypeName",
+              "src": "113:7:3",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint256",
+                "typeString": "uint256"
+              }
+            },
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 985,
+            "mutability": "mutable",
+            "name": "name",
+            "nameLocation": "137:4:3",
+            "nodeType": "VariableDeclaration",
+            "scope": 988,
+            "src": "130:11:3",
+            "stateVariable": false,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_string_storage_ptr",
+              "typeString": "string"
+            },
+            "typeName": {
+              "id": 984,
+              "name": "string",
+              "nodeType": "ElementaryTypeName",
+              "src": "130:6:3",
+              "typeDescriptions": {
+                "typeIdentifier": "t_string_storage_ptr",
+                "typeString": "string"
+              }
+            },
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 987,
+            "mutability": "mutable",
+            "name": "place",
+            "nameLocation": "155:5:3",
+            "nodeType": "VariableDeclaration",
+            "scope": 988,
+            "src": "148:12:3",
+            "stateVariable": false,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_string_storage_ptr",
+              "typeString": "string"
+            },
+            "typeName": {
+              "id": 986,
+              "name": "string",
+              "nodeType": "ElementaryTypeName",
+              "src": "148:6:3",
+              "typeDescriptions": {
+                "typeIdentifier": "t_string_storage_ptr",
+                "typeString": "string"
+              }
+            },
+            "visibility": "internal"
+          }
+        ],
+        "name": "Rollable",
+        "nameLocation": "79:8:3",
+        "nodeType": "StructDefinition",
+        "scope": 997,
+        "src": "72:92:3",
+        "visibility": "public"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "canonicalName": "IRollable",
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "fullyImplemented": false,
+        "id": 996,
+        "linearizedBaseContracts": [
+          996
+        ],
+        "name": "IRollable",
+        "nameLocation": "178:9:3",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "functionSelector": "51cdac6b",
+            "id": 995,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "find",
+            "nameLocation": "205:4:3",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 991,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 990,
+                  "mutability": "mutable",
+                  "name": "_address",
+                  "nameLocation": "218:8:3",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 995,
+                  "src": "210:16:3",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 989,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "210:7:3",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "209:18:3"
+            },
+            "returnParameters": {
+              "id": 994,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 993,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 995,
+                  "src": "251:7:3",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 992,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "251:7:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "250:9:3"
+            },
+            "scope": 996,
+            "src": "196:64:3",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "scope": 997,
+        "src": "168:101:3",
+        "usedErrors": [],
+        "usedEvents": []
+      }
+    ],
+    "src": "34:235:3"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.8.21+commit.d9974bed.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.4.16",
+  "updatedAt": "2023-12-03T11:01:38.605Z",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  }
+}
