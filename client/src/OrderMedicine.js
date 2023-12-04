@@ -71,7 +71,24 @@ function OrderMedicine() {
     for (i = 0; i < medCtr; i++) {
       med[i] = await supplychain.methods.getMedicine(i + 1).call();
       medStage[i] = await supplychain.methods.showStage(i + 1).call();
+
+      if (medStage[i] === "Medicine Ordered") {
+        medStage[i] = "Médicament commandé";
+      } else if (medStage[i] === "Raw Material Supply Stage") {
+        medStage[i] = "Approvisionnement en Matières Premières";
+      } else if (medStage[i] === "Manufacturing Stage") {
+        medStage[i] = "Fabrication";
+      } else if (medStage[i] === "Distribution Stage") {
+        medStage[i] = "Distribution";
+      } else if (medStage[i] === "Retail Stage") {
+        medStage[i] = "Vente au Détail";
+      } else if (medStage[i] === "Medicine Sold") {
+        medStage[i] = "Médicament Vendu";
+      } else {
+        medStage[i] = "Étape non valide";
+      }
     }
+    
     setMED(med);
     setMedStage(medStage);
     setloader(false);
@@ -113,6 +130,9 @@ function OrderMedicine() {
       var reciept = await SupplyChain.methods
         .addMedicine(MedName, MedDes, MedComs, MedQuant, dateNow)
         .send({ from: currentaccount });
+      if (reciept) {
+        loadBlockchaindata();
+      }
     } catch (err) {
       alert("An error occured!!!");
     }
@@ -152,7 +172,7 @@ function OrderMedicine() {
           Ajouter une commande
         </button>
       </form>
-      <Table responsive="sm">
+      <Table>
         <thead>
           <tr>
             <th style={{ width: "10%" }}>ID</th>

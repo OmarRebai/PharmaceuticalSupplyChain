@@ -51,6 +51,21 @@ function Track() {
     for (i = 0; i < medCtr; i++) {
       med[i + 1] = await supplychain.methods.getMedicine(i + 1).call();
       medStage[i + 1] = await supplychain.methods.showStage(i + 1).call();
+      if (medStage[i + 1] === "Medicine Ordered") {
+        medStage[i + 1] = "Médicament commandé";
+      } else if (medStage[i + 1] === "Raw Material Supply Stage") {
+        medStage[i + 1] = "Approvisionnement en Matières Premières";
+      } else if (medStage[i + 1] === "Manufacturing Stage") {
+        medStage[i + 1] = "Fabrication";
+      } else if (medStage[i + 1] === "Distribution Stage") {
+        medStage[i + 1] = "Distribution";
+      } else if (medStage[i + 1] === "Retail Stage") {
+        medStage[i + 1] = "Vente au Détail";
+      } else if (medStage[i + 1] === "Medicine Sold") {
+        medStage[i + 1] = "Médicament Vendu";
+      } else {
+        medStage[i + 1] = "Étape non valide";
+      }
     }
     setMED(med);
     setMedStage(medStage);

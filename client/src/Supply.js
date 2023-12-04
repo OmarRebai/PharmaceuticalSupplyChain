@@ -65,6 +65,21 @@ function Supply() {
     for (i = 0; i < medCtr; i++) {
       med[i] = await supplychain.methods.getMedicine(i + 1).call();
       medStage[i] = await supplychain.methods.showStage(i + 1).call();
+      if (medStage[i] === "Medicine Ordered") {
+        medStage[i] = "Médicament commandé";
+      } else if (medStage[i] === "Raw Material Supply Stage") {
+        medStage[i] = "Approvisionnement en Matières Premières";
+      } else if (medStage[i] === "Manufacturing Stage") {
+        medStage[i] = "Fabrication";
+      } else if (medStage[i] === "Distribution Stage") {
+        medStage[i] = "Distribution";
+      } else if (medStage[i] === "Retail Stage") {
+        medStage[i] = "Vente au Détail";
+      } else if (medStage[i] === "Medicine Sold") {
+        medStage[i] = "Médicament Vendu";
+      } else {
+        medStage[i] = "Étape non valide";
+      }
     }
     setMED(med);
     setMedStage(medStage);
@@ -169,7 +184,7 @@ function Supply() {
           <li class="active">Consommateur</li>
         </ul>
       </div>
-      <Table responsive="sm">
+      <Table>
         <thead>
           <tr>
             <th>ID</th>
@@ -208,9 +223,9 @@ function Supply() {
                 <td>{MED[key].update_date}</td>
                 <td>{MedStage[key]}</td>
                 <td>
-                  {MedStage[key] === "Medicine Ordered" && (
+                  {MedStage[key] === "Médicament commandé" && (
                     <button
-                      className="btn btn-warning btn-sm "
+                      className="btn btn-warning btn-sm w-100"
                       onClick={(event) =>
                         handlerSubmitRMSsupply(event, MED[key].id)
                       }
@@ -218,7 +233,8 @@ function Supply() {
                       Approvisionner
                     </button>
                   )}
-                  {MedStage[key] === "Raw Material Supply Stage" && (
+                  {MedStage[key] ===
+                    "Approvisionnement en Matières Premières" && (
                     <button
                       className="btn btn-warning btn-sm w-100"
                       onClick={(event) =>
@@ -228,7 +244,7 @@ function Supply() {
                       Fabriquer
                     </button>
                   )}
-                  {MedStage[key] === "Manufacturing Stage" && (
+                  {MedStage[key] === "Fabrication" && (
                     <button
                       className="btn btn-warning btn-sm w-100"
                       onClick={(event) =>
@@ -238,7 +254,7 @@ function Supply() {
                       Distribuer
                     </button>
                   )}
-                  {MedStage[key] === "Distribution Stage" && (
+                  {MedStage[key] === "Distribution" && (
                     <button
                       className="btn btn-warning btn-sm w-100"
                       onClick={(event) =>
@@ -248,7 +264,7 @@ function Supply() {
                       Vente au détail
                     </button>
                   )}
-                  {MedStage[key] === "Retail Stage" && (
+                  {MedStage[key] === "Vente au Détail" && (
                     <button
                       className="btn btn-warning btn-sm w-100"
                       onClick={(event) => handlerSubmitSold(event, MED[key].id)}
