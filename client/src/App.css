@@ -15,16 +15,11 @@ hr {
   width: 50% !important;
 }
 
-.card {
-  margin: 20px !important;
-}
-
 .card-body {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /*background: red;  Adjust the alpha (fourth parameter) for transparency */
   padding: 15px !important;
   /* border-radius: 1rem !important; */
 }
@@ -34,11 +29,32 @@ hr {
 }
 
 .table {
-  width: 97% !important;
   border: 1px solid #ccc !important;
-  margin: 20px !important;
+  background: rgba(
+    255,
+    255,
+    255,
+    0.04
+  ) !important; /* Adjust the alpha (fourth parameter) for transparency */
+  backdrop-filter: blur(10px); /* Adjust the blur intensity as needed */
+  background-clip: border-box;
+}
+input {
+  background: rgba(255, 255, 255, 0.04) !important;
+  backdrop-filter: blur(10px); /* Adjust the blur intensity as needed */
+  background-clip: border-box;
 }
 
+.breadcrumb {
+  background: rgba(
+    255,
+    255,
+    255,
+    0.04
+  ) !important; /* Adjust the alpha (fourth parameter) for transparency */
+  backdrop-filter: blur(10px); /* Adjust the blur intensity as needed */
+  background-clip: border-box;
+}
 .m-r-15 {
   margin-right: 15px !important;
 }
@@ -69,7 +85,7 @@ hr {
   background-image: url("./assets/background-blured.png");
   background-size: cover;
   height: 100vh;
-  background-repeat: no-repeat;
+  background-repeat: repeat;
   transition: 3ms;
 }
 
@@ -81,7 +97,11 @@ hr {
     0.493
   ) !important; /* Adjust the alpha (fourth parameter) for transparency */
   backdrop-filter: blur(10px); /* Adjust the blur intensity as needed */
-  height: 100vh;
+  height: 90vh;
+  padding: 20px 20px 0px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 form {
@@ -102,6 +122,7 @@ form {
 .navbar {
   color: #fff;
   background-color: #1d1b1bc4;
+  height: 10vh;
 }
 
 .active-link {
@@ -122,35 +143,34 @@ form {
 /* Progress bar */
 .progressbar-wrapper {
   background: transparent;
-  width: 100%;
+  width: 65%;
   padding-top: 10px;
   padding-bottom: 5px;
 }
 
 .progressbar li {
   list-style-type: none;
-  width: 235px;
+  width: 16%;
+  min-width: 100px;
   float: left;
   font-size: 12px;
   position: relative;
   text-align: center;
   text-transform: uppercase;
   color: #7d7d7d;
-  margin-bottom: 40px;
+  margin: 20px 0px 20px 0px;
 }
 .progressbar li:before {
-  width: 60px;
-  height: 60px;
+  width: 90%;
+  height: 90%;
   content: "";
   line-height: 60px;
-  border: 2px solid #7d7d7d;
   display: block;
   text-align: center;
-  margin: 0 auto 3px auto;
-  border-radius: 50%;
   position: relative;
   z-index: 2;
   background-color: #fff;
+  clip-path: polygon(75% 0%, 100% 50%, 75% 100%, 0% 100%, 25% 50%, 0% 0%);
 }
 .progressbar li:after {
   width: 100%;
@@ -162,24 +182,32 @@ form {
   left: -50%;
   z-index: 0;
 }
+
+.clearfix:after {
+  clear: both;
+  content: "";
+  display: block;
+  height: 0;
+}
+
 .progressbar li:first-child:after {
   content: none;
 }
 
 .progressbar li.active {
-  color: green;
+  color: #000000;
   font-weight: bold;
 }
 .progressbar li.active:before {
-  border-color: #55b776;
-  background: green;
+  border-color: #e0a800;
+  background: #e0a800;
 }
 .progressbar li.active + li:after {
-  background-color: #55b776;
+  background-color: #000000;
 }
 
 .progressbar li.active:before {
-  background: #55b776 url("") no-repeat center center;
+  background: #e0a800 url("") no-repeat center center;
   background-size: 60%;
 }
 .progressbar li::before {
@@ -197,11 +225,6 @@ form {
 
 /* Track css */
 
-.stretch-card > .card {
-  width: 100%;
-  min-width: 100%;
-}
-
 body {
   background-color: #f9f9fa;
 }
@@ -212,7 +235,7 @@ body {
   flex: 1 1 auto;
 }
 
-@media (max-width: 991.98px) {
+/* @media (max-width: 991.98px) {
   .padding {
     padding: 1.5rem;
   }
@@ -225,21 +248,25 @@ body {
 }
 
 .padding {
-  padding: 3rem;
-}
+  display: block;
+} */
+.track-card {
+  width: 100%;
 
-.card {
-  box-shadow: none;
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
-  -ms-box-shadow: none;
+  backdrop-filter: blur(5px); /* Adjust the blur intensity as needed */
+  background-clip: border-box;
+  border: rgb(170, 170, 170) 1px solid;
+  border-radius: 10px;
+  padding: 20px;
 }
-
 .card {
   position: relative;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   min-width: 0;
+  margin: 20px !important;
   word-wrap: break-word;
   background: rgba(
     255,
@@ -249,8 +276,12 @@ body {
   ) !important; /* Adjust the alpha (fourth parameter) for transparency */
   backdrop-filter: blur(10px); /* Adjust the blur intensity as needed */
   background-clip: border-box;
-  justify-content: center;
-  align-items: center;
+  transition: 0.3s;
+}
+
+.card:hover {
+  background: rgba(255, 255, 255, 0.708) !important;
+  scale: 1.05;
 }
 
 .card .card-block {
@@ -286,11 +317,11 @@ h6 {
 }
 
 .bg-c-red {
-  background: #ff5370;
+  background: #e0a800 !important;
 }
 
 .proj-progress-card .progress .progress-bar.bg-c-red:after {
-  border: 3px solid #ff5370;
+  border: 3px solid #e0a800 !important;
 }
 
 .proj-progress-card .progress .progress-bar:after {
@@ -333,7 +364,7 @@ h6 {
 }
 
 .text-c-red {
-  color: #ff5370;
+  color: #e0a800 !important;
 }
 
 .footer {

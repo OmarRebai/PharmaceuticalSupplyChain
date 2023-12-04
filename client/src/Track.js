@@ -84,7 +84,7 @@ function Track() {
   if (loader)
     return (
       <div className="spinner-button">
-        <Button variant="primary" disabled>
+        <Button variant="warning" disabled>
           <Spinner
             as="span"
             animation="grow"
@@ -92,7 +92,7 @@ function Track() {
             role="status"
             aria-hidden="true"
           />
-          Loading...
+          Chargement...
         </Button>
       </div>
     );
@@ -109,15 +109,15 @@ function Track() {
   return (
     <div className="bluredBg">
       {showMain ? (
-        <Table responsive="sm">
+        <Table>
           <thead>
             <tr>
-              <th>Medicine ID</th>
-              <th>Name</th>
+              <th>ID</th>
+              <th>Nom</th>
               <th>Description</th>
               <th>Composition</th>
-              <th>Quantity</th>
-              <th>Current Processing Stage</th>
+              <th>Quantité</th>
+              <th>Étape actuelle</th>
               <th>Actions</th>
             </tr>
           </thead>
@@ -146,12 +146,12 @@ function Track() {
                   <td>
                     {" "}
                     <button
-                      className="btn btn-success btn-sm"
+                      className="btn btn-warning btn-sm"
                       onClick={(event) =>
                         trackDetails(event, MED[key]?.id, MED[key])
                       }
                     >
-                      Track Order
+                      Suivre la commande
                     </button>
                   </td>
                 </tr>
@@ -164,26 +164,26 @@ function Track() {
           {" "}
           <Breadcrumb>
             <Breadcrumb.Item onClick={() => setShowMain(true)}>
-              List
+              Liste
             </Breadcrumb.Item>
             <Breadcrumb.Item active>{selectedRed?.name}</Breadcrumb.Item>
             <Breadcrumb.Item active>{selectedRed?.id}</Breadcrumb.Item>
-            <Breadcrumb.Item active>Track Details</Breadcrumb.Item>
+            <Breadcrumb.Item active>Suivre les détails</Breadcrumb.Item>
           </Breadcrumb>
           {ID && (
-            <div className="container-xl">
+            <div className="container-xl track-card">
               <h3>
                 <b>
-                  <u> Medicine: </u>
+                  <u> Médicament: </u>
                 </b>
               </h3>
               <span>
-                <b> Medicine ID: </b>
+                <b> ID Médicament: </b>
                 {MED[ID]?.id}
               </span>
               <br />
               <span>
-                <b> Name: </b> {MED[ID]?.name}
+                <b> Nom: </b> {MED[ID]?.name}
               </span>
               <br />
               <span>
@@ -197,12 +197,12 @@ function Track() {
               </span>
               <br />
               <span>
-                <b> Quantity: </b>
+                <b> Quantité: </b>
                 {MED[ID]?.quantity}
               </span>
               <br />
               <span>
-                <b> Current stage: </b>
+                <b> Étape actuelle: </b>
                 {MedStage[ID]}
               </span>
             </div>
@@ -210,144 +210,128 @@ function Track() {
           <div className="progressbar-wrapper">
             <ul className="progressbar">
               <li className={selectedRed?.stage >= "0" ? "active" : ""}>
-                Medicine Order
+                Commande de médicaments
               </li>
               <li className={selectedRed?.stage >= "1" ? "active" : ""}>
-                Raw Material Supplier
+                Fournisseur de matières premières
               </li>
               <li className={selectedRed?.stage >= "2" ? "active" : ""}>
-                Manufacturer
+                Fabricant
               </li>
               <li className={selectedRed?.stage >= "3" ? "active" : ""}>
-                Distributor
+                Distributeur
               </li>
               <li className={selectedRed?.stage >= "4" ? "active" : ""}>
-                Retailer
+                Détaillant
               </li>
               <li className={selectedRed?.stage >= "5" ? "active" : ""}>
-                Consumer
+                Consommateur
               </li>
             </ul>
           </div>
-          <div className="page-content page-container" id="page-content">
-            <div className="padding">
-              <div className="row container d-flex justify-content-center">
-                <div className="col-xl-12">
-                  <div className="card proj-progress-card">
-                    <div className="card-block">
-                      <div className="row">
-                        {MED[ID]?.stage >= "1" && (
-                          <div className="col-xl-3 col-md-6">
-                            <h6>
-                              Raw Materials Supplied by{" "}
-                              <strong>{RMS[MED[ID]?.RMSid].name}</strong> from{" "}
-                              <strong>{RMS[MED[ID]?.RMSid].place}</strong>
-                            </h6>
-                            <h5 className="m-b-30 f-w-700">
-                              Supplier ID
-                              <span className="text-c-green m-l-10">
-                                {RMS[MED[ID]?.RMSid].id}
-                              </span>
-                            </h5>
-                            <div className="progress">
-                              <div
-                                className="progress-bar bg-c-red"
-                                style={{ width: "100%" }}
-                              ></div>
-                            </div>
-                          </div>
-                        )}
-
-                        {MED[ID]?.stage >= "2" && (
-                          <div className="col-xl-3 col-md-6">
-                            <h6>
-                              Manufactured by{" "}
-                              <strong>{MAN[MED[ID]?.MANid].name}</strong> from{" "}
-                              <strong>{MAN[MED[ID]?.MANid].place}</strong>
-                            </h6>
-                            <h5 className="m-b-30 f-w-700">
-                              Manufacturer ID
-                              <span className="text-c-red m-l-10">
-                                {MAN[MED[ID]?.MANid].id}
-                              </span>
-                            </h5>
-                            <div className="progress">
-                              <div
-                                className="progress-bar bg-c-blue"
-                                style={{ width: "100%" }}
-                              ></div>
-                            </div>
-                          </div>
-                        )}
-                        {MED[ID]?.stage >= "3" && (
-                          <div className="col-xl-3 col-md-6">
-                            <h6>
-                              Distributed by{" "}
-                              <strong>{DIS[MED[ID]?.DISid].name}</strong> from{" "}
-                              <strong>{DIS[MED[ID]?.DISid].place}</strong>
-                            </h6>
-                            <h5 className="m-b-30 f-w-700">
-                              Distributor ID
-                              <span className="text-c-red m-l-10">
-                                {DIS[MED[ID]?.DISid].id}
-                              </span>
-                            </h5>
-                            <div className="progress">
-                              <div
-                                className="progress-bar bg-c-blue"
-                                style={{ width: "100%" }}
-                              ></div>
-                            </div>
-                          </div>
-                        )}
-                        {MED[ID]?.stage >= "4" && (
-                          <div className="col-xl-3 col-md-6">
-                            <h6>
-                              Retailed by{" "}
-                              <strong>{RET[MED[ID]?.RETid].name}</strong> from{" "}
-                              <strong>{RET[MED[ID]?.RETid].place}</strong>
-                            </h6>
-                            <h5 className="m-b-30 f-w-700">
-                              Retailer ID
-                              <span className="text-c-red m-l-10">
-                                {RET[MED[ID]?.RETid].id}
-                              </span>
-                            </h5>
-                            <div className="progress">
-                              <div
-                                className="progress-bar bg-c-blue"
-                                style={{ width: "100%" }}
-                              ></div>
-                            </div>
-                          </div>
-                        )}
-                        {MED[ID]?.stage >= "5" && (
-                          <div className="col-xl-3 col-md-6">
-                            <h6>
-                              Sold by{" "}
-                              <strong>{RET[MED[ID]?.RETid].name}</strong> from{" "}
-                              <strong>{RET[MED[ID]?.RETid].place}</strong>
-                            </h6>
-                            <h5 className="m-b-30 f-w-700">
-                              Retailer ID
-                              <span className="text-c-red m-l-10">
-                                {RET[MED[ID]?.RETid].id}
-                              </span>
-                            </h5>
-                            <div className="progress">
-                              <div
-                                className="progress-bar bg-c-blue"
-                                style={{ width: "100%" }}
-                              ></div>
-                            </div>
-                          </div>
-                        )}
-                      </div>
-                    </div>
+          <div className="row container d-flex justify-content-center track-card">
+            {MED[ID]?.stage >= "1" && (
+              <div className="col d-flex flex-column justify-content-between">
+                <h6>
+                  Matières premières fournis par{" "}
+                  <strong>{RMS[MED[ID]?.RMSid].name}</strong> de{" "}
+                  <strong>{RMS[MED[ID]?.RMSid].place}</strong>
+                </h6>
+                <h5>
+                  ID fournisseur
+                  <span className="text-c-green m-l-10">
+                    {RMS[MED[ID]?.RMSid].id}
+                  </span>
+                  <div className="progress mt-2">
+                    <div
+                      className="progress-bar bg-c-red"
+                      style={{ width: "100%" }}
+                    ></div>
                   </div>
-                </div>
+                </h5>
               </div>
-            </div>
+            )}
+
+            {MED[ID]?.stage >= "2" && (
+              <div className="col d-flex flex-column justify-content-between">
+                <h6>
+                  Fabriqué par <strong>{MAN[MED[ID]?.MANid].name}</strong> de{" "}
+                  <strong>{MAN[MED[ID]?.MANid].place}</strong>
+                </h6>
+                <h5>
+                  ID fabricant
+                  <span className="text-c-red m-l-10">
+                    {MAN[MED[ID]?.MANid].id}
+                  </span>
+                  <div className="progress mt-2">
+                    <div
+                      className="progress-bar bg-c-red"
+                      style={{ width: "100%" }}
+                    ></div>
+                  </div>
+                </h5>
+              </div>
+            )}
+            {MED[ID]?.stage >= "3" && (
+              <div className="col d-flex flex-column justify-content-between">
+                <h6>
+                  Distribué par <strong>{DIS[MED[ID]?.DISid].name}</strong> de{" "}
+                  <strong>{DIS[MED[ID]?.DISid].place}</strong>
+                </h6>
+                <h5>
+                  ID distributeur
+                  <span className="text-c-red m-l-10">
+                    {DIS[MED[ID]?.DISid].id}
+                  </span>
+                  <div className="progress mt-2">
+                    <div
+                      className="progress-bar bg-c-red"
+                      style={{ width: "100%" }}
+                    ></div>
+                  </div>
+                </h5>
+              </div>
+            )}
+            {MED[ID]?.stage >= "4" && (
+              <div className="col d-flex flex-column justify-content-between">
+                <h6>
+                  Vendu par <strong>{RET[MED[ID]?.RETid].name}</strong> de{" "}
+                  <strong>{RET[MED[ID]?.RETid].place}</strong>
+                </h6>
+                <h5>
+                  ID détaillant
+                  <span className="text-c-red m-l-10">
+                    {RET[MED[ID]?.RETid].id}
+                  </span>
+                  <div className="progress mt-2">
+                    <div
+                      className="progress-bar bg-c-red"
+                      style={{ width: "100%" }}
+                    ></div>
+                  </div>
+                </h5>
+              </div>
+            )}
+            {MED[ID]?.stage >= "5" && (
+              <div className="col d-flex flex-column justify-content-between">
+                <h6>
+                  Vendu par <strong>{RET[MED[ID]?.RETid].name}</strong> de{" "}
+                  <strong>{RET[MED[ID]?.RETid].place}</strong>
+                </h6>
+                <h5>
+                  ID détaillant
+                  <span className="text-c-red m-l-10">
+                    {RET[MED[ID]?.RETid].id}
+                  </span>
+                  <div className="progress mt-2">
+                    <div
+                      className="progress-bar bg-c-red"
+                      style={{ width: "100%" }}
+                    ></div>
+                  </div>
+                </h5>
+              </div>
+            )}
           </div>
         </>
       )}

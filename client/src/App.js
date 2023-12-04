@@ -15,7 +15,7 @@ function App() {
     >
       <Navbar className="navbar" variant="dark">
         <Container>
-          <Navbar.Brand href="/"> Pharmaceutical Supply Chain</Navbar.Brand>
+          <Navbar.Brand href="/"> MedSuiviChain</Navbar.Brand>
           <Nav className="me-auto">
             <Nav.Link
               href="/register"
@@ -23,7 +23,7 @@ function App() {
                 window?.location?.pathname === "/register" ? "active-link" : ""
               }
             >
-              Register
+              Enregistrer
             </Nav.Link>
             <Nav.Link
               href="/order-medicine"
@@ -33,7 +33,7 @@ function App() {
                   : ""
               }
             >
-              Order Medicines
+              Commander des médicaments
             </Nav.Link>
             <Nav.Link
               href="/control-supply-chain"
@@ -43,7 +43,7 @@ function App() {
                   : ""
               }
             >
-              Control Supply Chain
+              Contrôler la chaîne d'approvisionnement
             </Nav.Link>
             <Nav.Link
               href="/track-medicine"
@@ -53,7 +53,7 @@ function App() {
                   : ""
               }
             >
-              Track Medicines
+              Suivre les médicaments
             </Nav.Link>
           </Nav>
         </Container>

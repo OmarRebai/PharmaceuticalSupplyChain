@@ -31,16 +31,16 @@ function LandingPage() {
     <div className="homebg">
       <div className="project-title">
         {" "}
-        <h1>Pharmaceutical Supply Chain</h1>
+        <h1>MedSuiviChain</h1>
         <span>
-          The pharmaceutical supply chain involves the process of sourcing raw
-          materials, manufacturing, distributing, and delivering medications to
-          consumers.
+          La chaîne d'approvisionnement pharmaceutique implique le processus
+          d'approvisionnement en matières premières, de fabrication, de
+          distribution et de livraison de médicaments aux consommateurs.
         </span>
         <br />
         <br />
         <span>
-          <b>Current Account Address:</b> {currentaccount}
+          <b>Adresse du compte courant :</b> {currentaccount}
         </span>
       </div>
     </div>

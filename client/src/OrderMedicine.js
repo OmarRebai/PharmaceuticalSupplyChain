@@ -79,7 +79,7 @@ function OrderMedicine() {
   if (loader) {
     return (
       <div className="spinner-button">
-        <Button variant="primary" disabled>
+        <Button variant="warning" disabled>
           <Spinner
             as="span"
             animation="grow"
@@ -87,7 +87,7 @@ function OrderMedicine() {
             role="status"
             aria-hidden="true"
           />
-          Loading...
+          Chargement...
         </Button>
       </div>
     );
@@ -124,45 +124,45 @@ function OrderMedicine() {
           className="form-control-sm m-r-15"
           type="text"
           onChange={handlerChangeNameMED}
-          placeholder="Medicine Name"
+          placeholder="Nom du médicament"
           required
         />
         <input
           className="form-control-sm m-r-15"
           type="text"
           onChange={handlerChangeDesMED}
-          placeholder="Medicine Description"
+          placeholder="Description du médicament"
           required
         />
         <input
           className="form-control-sm m-r-15"
           type="text"
           onChange={handlerChangeComs}
-          placeholder="Medicine Composition"
+          placeholder="Composition du médicament"
           required
         />
         <input
           className="form-control-sm m-r-15"
           type="text"
           onChange={handlerChangeQuant}
-          placeholder="Medicine Quantity"
+          placeholder="Quantité de médicament"
           required
         />
-        <button className="btn btn-success btn-sm" onSubmit={handlerSubmitMED}>
-          Add Order
+        <button className="btn btn-warning btn-sm" onSubmit={handlerSubmitMED}>
+          Ajouter une commande
         </button>
       </form>
       <Table responsive="sm">
         <thead>
           <tr>
             <th style={{ width: "10%" }}>ID</th>
-            <th style={{ width: "10%" }}>Name</th>
+            <th style={{ width: "10%" }}>Nom</th>
             <th style={{ width: "10%" }}>Description</th>
             <th style={{ width: "10%" }}>Composition</th>
-            <th style={{ width: "10%" }}>Quantity</th>
-            <th style={{ width: "10%" }}>Creation Date</th>
-            <th style={{ width: "10%" }}>Update Date</th>
-            <th style={{ width: "10%" }}>Current Stage</th>
+            <th style={{ width: "10%" }}>Quantité</th>
+            <th style={{ width: "10%" }}>Date de création</th>
+            <th style={{ width: "10%" }}>Date de mise à jour</th>
+            <th style={{ width: "10%" }}>Étape actuelle</th>
           </tr>
         </thead>
         <tbody>

@@ -59,7 +59,7 @@ function Register() {
   if (loader) {
     return (
       <div className="spinner-button">
-        <Button variant="primary" disabled>
+        <Button variant="warning" disabled>
           <Spinner
             as="span"
             animation="grow"
@@ -67,7 +67,7 @@ function Register() {
             role="status"
             aria-hidden="true"
           />
-          Loading...
+          Chargement...
         </Button>
       </div>
     );
@@ -128,11 +128,11 @@ function Register() {
                       "rawMaterialSupplierCtr",
                       "getRMS",
                       "addRawMaterialSupplier",
-                      "Raw Material Suppliers"
+                      "Fournisseurs de matières premières"
                     )
                   }
                 >
-                  {<Card.Title>Raw Material Suppliers</Card.Title>}
+                  {<Card.Title>Fournisseurs de matières premières</Card.Title>}
                   <Card.Img variant="top" src={rawMaterialSuppliers} />
                 </Card.Body>
               </Card>
@@ -145,11 +145,11 @@ function Register() {
                       "manufacturerCtr",
                       "getManufacturer",
                       "addManufacturer",
-                      "Manufacturers"
+                      "Fabricants"
                     )
                   }
                 >
-                  <Card.Title>Manufacturers</Card.Title>
+                  <Card.Title>Fabricants</Card.Title>
                   <Card.Img variant="top" src={manufacturers} />
                 </Card.Body>
               </Card>
@@ -164,11 +164,11 @@ function Register() {
                       "distributorCtr",
                       "getDistributor",
                       "addDistributor",
-                      "Distributors"
+                      "Distributeurs"
                     )
                   }
                 >
-                  <Card.Title>Distributors</Card.Title>
+                  <Card.Title>Distributeurs</Card.Title>
                   <Card.Img variant="top" src={distributors} />
                 </Card.Body>
               </Card>
@@ -181,11 +181,11 @@ function Register() {
                       "retailerCtr",
                       "getRetailer",
                       "addRetailer",
-                      "Retailers"
+                      "Détaillants"
                     )
                   }
                 >
-                  <Card.Title>Retailers</Card.Title>
+                  <Card.Title>Détaillants</Card.Title>
 
                   <Card.Img variant="top" src={retailers} />
                 </Card.Body>
@@ -197,7 +197,7 @@ function Register() {
         <div className="bluredBg">
           <Breadcrumb variant="dark">
             <Breadcrumb.Item onClick={() => setShowMain(true)}>
-              List
+              Liste
             </Breadcrumb.Item>
             <Breadcrumb.Item active>{subTitle}</Breadcrumb.Item>
           </Breadcrumb>
@@ -206,34 +206,34 @@ function Register() {
               className="form-control-sm m-r-15"
               type="text"
               onChange={handlerChangeAddress}
-              placeholder="Ethereum Address"
+              placeholder="Adresse Ethereum"
               required
             />
             <input
               className="form-control-sm m-r-15"
               type="text"
               onChange={handlerChangeName}
-              placeholder="Raw Material Supplier Name"
+              placeholder="Nom"
               required
             />
             <input
               className="form-control-sm m-r-15"
               type="text"
               onChange={handlerChangePlace}
-              placeholder="Based In"
+              placeholder="Adresse"
               required
             />
-            <button className="btn btn-success " onSubmit={handlerSubmit}>
-              Add
+            <button className="btn btn-warning " onSubmit={handlerSubmit}>
+              Ajouter
             </button>
           </form>
-          <Table responsive="sm">
+          <Table>
             <thead>
               <tr>
                 <th>S. No</th>
-                <th>Name</th>
-                <th>Place</th>
-                <th>Ethereum Address</th>
+                <th>Nom</th>
+                <th>Adresse</th>
+                <th>Adresse Ethereum</th>
               </tr>
             </thead>
             <tbody>

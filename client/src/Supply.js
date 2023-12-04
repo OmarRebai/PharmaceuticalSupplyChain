@@ -73,7 +73,7 @@ function Supply() {
   if (loader) {
     return (
       <div className="spinner-button">
-        <Button variant="primary" disabled>
+        <Button variant="warning" disabled>
           <Spinner
             as="span"
             animation="grow"
@@ -81,7 +81,7 @@ function Supply() {
             role="status"
             aria-hidden="true"
           />
-          Loading...
+          Chargement...
         </Button>
       </div>
     );
@@ -159,27 +159,27 @@ function Supply() {
   };
   return (
     <div className="bluredBg">
-      <div class="progressbar-wrapper m-20">
+      <div class="progressbar-wrapper">
         <ul class="progressbar">
-          <li class="active">Medicine Order</li>
-          <li class="active">Raw Material Supplier</li>
-          <li class="active">Manufacturer</li>
-          <li class="active">Distributor</li>
-          <li class="active">Retailer</li>
-          <li class="active">Consumer</li>
+          <li class="active">Commande de médicaments</li>
+          <li class="active">Fournisseur de matières premières</li>
+          <li class="active">Fabricant</li>
+          <li class="active">Distributeur</li>
+          <li class="active">Détaillant</li>
+          <li class="active">Consommateur</li>
         </ul>
       </div>
       <Table responsive="sm">
         <thead>
           <tr>
-            <th>Medicine ID</th>
-            <th>Name</th>
+            <th>ID</th>
+            <th>Nom</th>
             <th>Description</th>
             <th>Composition</th>
-            <th>Quantity</th>
-            <th>Creation Date</th>
-            <th>Update Date</th>
-            <th>Current Processing Stage</th>
+            <th>Quantité</th>
+            <th>Date de création</th>
+            <th>Date de mise à jour</th>
+            <th>Étape actuelle</th>
             <th>Actions</th>
           </tr>
         </thead>
@@ -210,50 +210,50 @@ function Supply() {
                 <td>
                   {MedStage[key] === "Medicine Ordered" && (
                     <button
-                      className="btn btn-success btn-sm"
+                      className="btn btn-warning btn-sm "
                       onClick={(event) =>
                         handlerSubmitRMSsupply(event, MED[key].id)
                       }
                     >
-                      Supply
+                      Approvisionner
                     </button>
                   )}
                   {MedStage[key] === "Raw Material Supply Stage" && (
                     <button
-                      className="btn btn-success btn-sm"
+                      className="btn btn-warning btn-sm w-100"
                       onClick={(event) =>
                         handlerSubmitManufacturing(event, MED[key].id)
                       }
                     >
-                      Manufacture
+                      Fabriquer
                     </button>
                   )}
                   {MedStage[key] === "Manufacturing Stage" && (
                     <button
-                      className="btn btn-success btn-sm"
+                      className="btn btn-warning btn-sm w-100"
                       onClick={(event) =>
                         handlerSubmitDistribute(event, MED[key].id)
                       }
                     >
-                      Distribute
+                      Distribuer
                     </button>
                   )}
                   {MedStage[key] === "Distribution Stage" && (
                     <button
-                      className="btn btn-success btn-sm"
+                      className="btn btn-warning btn-sm w-100"
                       onClick={(event) =>
                         handlerSubmitRetail(event, MED[key].id)
                       }
                     >
-                      Retail
+                      Vente au détail
                     </button>
                   )}
                   {MedStage[key] === "Retail Stage" && (
                     <button
-                      className="btn btn-success btn-sm"
+                      className="btn btn-warning btn-sm w-100"
                       onClick={(event) => handlerSubmitSold(event, MED[key].id)}
                     >
-                      Sold
+                      Vendu
                     </button>
                   )}
                 </td>
